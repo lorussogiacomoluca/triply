@@ -54,17 +54,29 @@ class TripController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Trip $trip)
     {
-        //
+        return view('trips.edit', compact('trip'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Trip $trip)
     {
-        //
+        $data = $request->all();
+
+        $trip->title = $data['title'];
+        $trip->destination = $data['destination'];
+        $trip->start_date = $data['start_date'];
+        $trip->end_date = $data['end_date'];
+        $trip->price = $data['price'];
+        $trip->category = $data['category'];
+        $trip->description = $data['description'];
+
+        $trip->update();
+
+        return redirect()->route('trips.show', $trip);
     }
 
     /**

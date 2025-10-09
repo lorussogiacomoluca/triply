@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TripController as AdminTripController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TripController;
 use Illuminate\Container\Attributes\Auth;
@@ -18,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('trips', TripController::class);
+Route::resource('trips', AdminTripController::class)->middleware('auth', 'verified');
 
 
 require __DIR__ . '/auth.php';

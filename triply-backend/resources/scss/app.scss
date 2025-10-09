@@ -1,1 +1,33 @@
-@import '~bootstrap/scss/bootstrap'
+@import 'bootstrap/scss/bootstrap';
+
+// 🌙 Dark mode Triply - Form controls
+[data-bs-theme="dark"] {
+  .form-control,
+  .form-select,
+  input.form-control,
+  textarea.form-control,
+  select.form-control {
+    background-color: #1e1e1e !important;
+    color: #f8f9fa !important;
+    border-color: #444 !important;
+    
+    &:focus {
+      background-color: #1e1e1e !important;
+      border-color: #0d6efd !important;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+      color: #fff !important;
+    }
+    
+    &::placeholder {
+      color: #6c757d !important;
+    }
+    
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px #1e1e1e inset !important;
+      -webkit-text-fill-color: #f8f9fa !important;
+      border-color: #444 !important;
+    }
+  }
+}

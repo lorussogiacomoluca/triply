@@ -22,7 +22,7 @@ class TripController extends Controller
      */
     public function create()
     {
-        //
+        return view('trips.create');
     }
 
     /**
@@ -30,7 +30,17 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newTrip = new Trip();
+        $newTrip->title = $data['title'];
+        $newTrip->destination = $data['destination'];
+        $newTrip->start_date = $data['start_date'];
+        $newTrip->end_date = $data['end_date'];
+        $newTrip->price = $data['price'];
+        $newTrip->category = $data['category'];
+        $newTrip->description = $data['description'];
+        $newTrip->save();
+        return redirect()->route('trips.show', $newTrip);
     }
 
     /**

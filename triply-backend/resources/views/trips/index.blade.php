@@ -10,7 +10,12 @@
             <div class="col">
             @section('content')
                 <div class="container mt-4">
-                    <h1>Viaggi</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>Viaggi</h1>
+                        <a href="{{ route('trips.create') }}"> <button class="btn btn-outline-primary">Aggiungi
+                                nuovo</button></a>
+                    </div>
+
 
                     <table class="table">
                         <thead>
@@ -30,7 +35,8 @@
                                     <td>{{ \Carbon\Carbon::parse($trip->start_date)->format('d/m/Y') }}</td>
                                     <td>€ {{ $trip->price }}</td>
                                     <td>
-                                        <a href="{{ route('trips.show', $trip->id) }}" class="btn btn-primary btn-sm">Vedi</a>
+                                        <a href="{{ route('trips.show', $trip->id) }}"
+                                            class="btn btn-primary btn-sm">Vedi</a>
                                     </td>
                                 </tr>
                             @endforeach

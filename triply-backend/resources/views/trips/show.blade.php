@@ -31,9 +31,46 @@
 
             </div>
 
-            <div class="card-footer text-end">
-                <a href="{{ route('trips.index') }}" class="btn btn-secondary">← Torna ai viaggi</a>
+            <div class="card-footer d-flex justify-content-end gap-2">
+                <!-- Bottone modifica -->
+                <a href="{{ route('trips.edit', $trip->id) }}" class="btn btn-warning">
+                    Modifica
+                </a>
+
+                <!-- Bottone torna -->
+                <a href="{{ route('trips.index') }}" class="btn btn-secondary">
+                    ← Torna ai viaggi
+                </a>
+
+                <!-- Bottone elimina (apre modal) -->
+                <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    Elimina
+                </a>
             </div>
+
+            <!-- Modal di conferma eliminazione -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Conferma Eliminazione</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                        </div>
+                        <div class="modal-body">
+                            Sei sicuro di voler eliminare questo viaggio? L'operazione non può essere annullata.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <form method="POST" action="{{ route('trips.destroy', $trip) }}" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Elimina definitivamente</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection

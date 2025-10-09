@@ -15,8 +15,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                <li class="nav-item d-flex">
+                    <a class="nav-link" href="{{ route('trips.index') }}">{{ __('Tutti i viaggi') }}</a>
+                    <a class="nav-link" href="{{ route('trips.create') }}">{{ __('Aggiungi nuovo viaggio') }}</a>
+
                 </li>
             </ul>
 

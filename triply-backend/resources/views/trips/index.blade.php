@@ -27,7 +27,7 @@
                                 <tr>
                                     <td>{{ $trip->title }}</td>
                                     <td>{{ $trip->destination }}</td>
-                                    <td>{{ $trip->start_date }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($trip->start_date)->format('d/m/Y') }}</td>
                                     <td>€ {{ $trip->price }}</td>
                                     <td>
                                         <a href="{{ route('trips.show', $trip->id) }}" class="btn btn-primary btn-sm">Vedi</a>

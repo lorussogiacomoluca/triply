@@ -1,10 +1,16 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Container\Attributes\Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    if (FacadesAuth::check()) {
+        return redirect()->route('dashboard');
+    } else {
+        return redirect()->route('login');
+    }
 });
 
 Route::get('/dashboard', function () {
@@ -17,4 +23,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

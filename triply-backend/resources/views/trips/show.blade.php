@@ -13,15 +13,27 @@
             </div>
 
             <div class="card-body">
+
                 <p><strong>Destinazione:</strong> {{ $trip->destination }}</p>
                 <p><strong>Data Inizio:</strong> {{ \Carbon\Carbon::parse($trip->start_date)->format('d/m/Y') }}</p>
                 <p><strong>Data Fine:</strong> {{ \Carbon\Carbon::parse($trip->end_date)->format('d/m/Y') }}</p>
                 <p><strong>Prezzo:</strong> € {{ number_format($trip->price, 2, ',', '.') }}</p>
 
                 @if ($trip->description)
-                    <p><strong>Descrizione:</strong></p>
-                    <p>{{ $trip->description }}</p>
+                    <div class="d-flex">
+                        <p><strong>Descrizione: </strong></p>
+                        <p> {{ $trip->description }}</p>
+                    </div>
                 @endif
+
+                <p><strong>Tags: </strong>
+                    @forelse ($trip->tags as $tag)
+                        <span class="badge" style="background-color: {{ $tag->color }}">{{ $tag->name }}</span>
+
+                    @empty
+                        Nessun tag
+                    @endforelse
+                </p>
 
                 @if ($trip->cover_image)
                     <p><strong>Immagine di copertina:</strong></p>

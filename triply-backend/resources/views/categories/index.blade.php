@@ -26,10 +26,12 @@
                                 <div id="collapse-{{ $category->id }}" class="accordion-collapse collapse"
                                     data-bs-parent="#categoriesAccordion">
                                     <div class="accordion-body">
-                                        <div class="d-flex justify-content-end my-3">
-                                            <div class="btn btn-warning">Modifica Categoria</div>
+                                        <div class="d-flex justify-content-between align-items-center my-3">
+                                            <div class="fst-italic">{{ $category->description }}</div>
+                                            <button class="btn btn-warning">Modifica Categoria</button>
                                         </div>
-                                        {{ $category->description }}
+
+
                                         <div class="row">
                                             @foreach ($category->trips as $trip)
                                                 <div class="col-md-4 col-lg-3 mb-4">

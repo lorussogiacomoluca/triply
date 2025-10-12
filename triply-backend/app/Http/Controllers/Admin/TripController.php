@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class TripController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('trips.create', compact('categories'));
+        $tags = Tag::all();
+        return view('trips.create', compact('categories', 'tags'));
     }
 
     /**
@@ -42,6 +44,7 @@ class TripController extends Controller
         $newTrip->category_id = $data['category_id'];
         $newTrip->description = $data['description'];
         $newTrip->save();
+        $newTrip->tags()->attach($data['tags']);
         return redirect()->route('trips.show', $newTrip);
     }
 

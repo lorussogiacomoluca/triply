@@ -18,6 +18,8 @@
                 <li class="nav-item d-flex">
                     <a class="nav-link" href="{{ route('trips.index') }}">{{ __('Tutti i viaggi') }}</a>
                     <a class="nav-link" href="{{ route('trips.create') }}">{{ __('Aggiungi nuovo viaggio') }}</a>
+                    <a class="nav-link" href="{{ route('categories.index') }}">{{ __('Categorie') }}</a>
+
 
                 </li>
             </ul>

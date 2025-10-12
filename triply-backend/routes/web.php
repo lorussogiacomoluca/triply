@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\TripController as AdminTripController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TripController;
 use Illuminate\Container\Attributes\Auth;
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('trips', AdminTripController::class)->middleware('auth', 'verified');
+Route::resource('categories', AdminCategoryController::class)->middleware('auth', 'verified');
 
 
 require __DIR__ . '/auth.php';

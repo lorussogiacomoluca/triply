@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(TripsTableSeeder::class);
+        $this->call([CategoriesTableSeeder::class, TripsTableSeeder::class]);
     }
 }

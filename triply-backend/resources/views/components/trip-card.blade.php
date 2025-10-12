@@ -1,6 +1,8 @@
 <div class="card h-100 shadow-sm">
     @if ($trip->cover_image)
-        <img src="{{ asset('storage/' . $trip->cover_image) }}" class="card-img-top" alt="{{ $trip->title }}"
+        {{-- <img src="{{ asset('storage/' . $trip->cover_image) }}" class="card-img-top" alt="{{ $trip->title }}"
+            style="height: 200px; object-fit: cover;"> --}}
+        <img src="{{ asset($trip->cover_image) }}" class="card-img-top" alt="{{ $trip->title }}"
             style="height: 200px; object-fit: cover;">
     @else
         <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">

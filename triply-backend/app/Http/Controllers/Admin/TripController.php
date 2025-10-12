@@ -58,7 +58,8 @@ class TripController extends Controller
      */
     public function edit(Trip $trip)
     {
-        return view('trips.edit', compact('trip'));
+        $categories  = Category::all();
+        return view('trips.edit', compact('trip', 'categories'));
     }
 
     /**
@@ -73,7 +74,7 @@ class TripController extends Controller
         $trip->start_date = $data['start_date'];
         $trip->end_date = $data['end_date'];
         $trip->price = $data['price'];
-        $trip->category = $data['category'];
+        $trip->category_id = $data['category_id'];
         $trip->description = $data['description'];
 
         $trip->update();

@@ -33,16 +33,15 @@
                         <input type="number" name="price" id="price" class="form-control" value="{{ $trip->price }}"
                             step="0.01" required>
                     </div>
-                    @php
-                        $categories = ['Avventura', 'Relax', 'Cultura', 'Mare', 'Montagna', 'Città d\'arte'];
-                    @endphp
+
                     <div class="mb-3">
                         <label for="category" class="form-label">Categoria</label>
-                        <select name="category" id="category" class="form-select" required>
+                        <select name="category_id" id="category" class="form-select" required>
                             <option value="" disabled>Seleziona categoria</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category }}" {{ $trip->category == $category ? 'selected' : '' }}>
-                                    {{ $category }}
+                                <option value="{{ $category->id }}"
+                                    {{ $trip->category->id == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
                                 </option>
                             @endforeach
                         </select>

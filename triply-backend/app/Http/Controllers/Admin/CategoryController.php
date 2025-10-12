@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $newCategory->name = $data['name'];
         $newCategory->description = $data['description'];
         $newCategory->save();
-        return redirect()->route('categories.show', $newCategory);
+        return redirect()->route('categories.index');
     }
 
     /**

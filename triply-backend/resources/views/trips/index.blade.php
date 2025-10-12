@@ -40,7 +40,7 @@
                                         <a href="{{ route('trips.edit', $trip->id) }}"
                                             class="btn btn-warning btn-sm">Edit</a>
                                         <!-- Bottone che apre il modal -->
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#deleteModal">
                                             Elimina
                                         </button>

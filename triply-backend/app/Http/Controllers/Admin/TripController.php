@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class TripController extends Controller
      */
     public function create()
     {
-        return view('trips.create');
+        $categories = Category::all();
+        return view('trips.create', compact('categories'));
     }
 
     /**

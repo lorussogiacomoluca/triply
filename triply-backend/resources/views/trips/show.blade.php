@@ -9,7 +9,7 @@
 
         <div class="card shadow-sm">
             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0">{{ $trip->title }}</h4>
+                <h4 class="mb-0">Category: {{ $trip->category->name }}</h4>
             </div>
 
             <div class="card-body">
@@ -32,23 +32,23 @@
             </div>
 
             <div class="card-footer d-flex justify-content-end gap-2">
-                <!-- Bottone modifica -->
+                <!-- EDIT -->
                 <a href="{{ route('trips.edit', $trip->id) }}" class="btn btn-warning">
                     Modifica
                 </a>
 
-                <!-- Bottone torna -->
+                <!-- INDEX -->
                 <a href="{{ route('trips.index') }}" class="btn btn-secondary">
                     ← Torna ai viaggi
                 </a>
 
-                <!-- Bottone elimina (apre modal) -->
+                <!-- DELETE MODAL -->
                 <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     Elimina
                 </a>
             </div>
 
-            <!-- Modal di conferma eliminazione -->
+
             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">

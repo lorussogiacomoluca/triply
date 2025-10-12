@@ -39,7 +39,7 @@ class TripController extends Controller
         $newTrip->start_date = $data['start_date'];
         $newTrip->end_date = $data['end_date'];
         $newTrip->price = $data['price'];
-        $newTrip->category = $data['category'];
+        $newTrip->category_id = $data['category_id'];
         $newTrip->description = $data['description'];
         $newTrip->save();
         return redirect()->route('trips.show', $newTrip);

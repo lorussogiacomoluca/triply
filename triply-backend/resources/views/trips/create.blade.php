@@ -27,15 +27,12 @@
                         <label for="price" class="form-label">Prezzo (€)</label>
                         <input type="number" name="price" id="price" class="form-control" step="0.01" required>
                     </div>
-                    @php
-                        $categories = ['Avventura', 'Relax', 'Cultura', 'Mare', 'Montagna', 'Città d\'arte'];
-                    @endphp
                     <div class="mb-3">
                         <label for="category" class="form-label">Categoria</label>
-                        <select name="category" id="category" class="form-select" required>
+                        <select name="category_id" id="category" class="form-select" required>
                             <option value="" disabled selected>Seleziona categoria</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category }}">{{ $category }}</option>
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>

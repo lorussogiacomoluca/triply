@@ -62,7 +62,8 @@ class TripController extends Controller
     public function edit(Trip $trip)
     {
         $categories  = Category::all();
-        return view('trips.edit', compact('trip', 'categories'));
+        $tags = Tag::all();
+        return view('trips.edit', compact('trip', 'categories', 'tags'));
     }
 
     /**
@@ -81,6 +82,8 @@ class TripController extends Controller
         $trip->description = $data['description'];
 
         $trip->update();
+
+        $trip->tags()->sync($data['tags']);
 
         return redirect()->route('trips.show', $trip);
     }

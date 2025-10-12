@@ -47,6 +47,18 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <div class="d-flex flex-wrap">
+                            @foreach ($tags as $tag)
+                                <div class="tag me-2">
+                                    <input {{ $trip->tags->contains($tag->id) ? 'checked' : '' }} type="checkbox"
+                                        name="tags[]" value="{{ $tag->id }}" id="tag-{{ $tag->id }}">
+                                    <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="cover_image" class="form-label">Immagine di copertina</label>
                         @if ($trip->cover_image)
                             <div class="mb-2">

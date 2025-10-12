@@ -36,14 +36,17 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mb-3 d-flex flex-wrap">
-                        @foreach ($tags as $tag)
-                            <div class="tag me-2">
-                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}"
-                                    id="tag-{{ $tag->id }}">
-                                <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
-                            </div>
-                        @endforeach
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <div class="d-flex flex-wrap">
+                            @foreach ($tags as $tag)
+                                <div class="tag me-2">
+                                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}"
+                                        id="tag-{{ $tag->id }}">
+                                    <label for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>

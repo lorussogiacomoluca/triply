@@ -7,7 +7,7 @@
             <div class="col">
             @section('content')
                 <div class="container mt-4">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
                         <h2> {{ __('Tutte le categorie') }}</h2>
                         <a href="{{ route('categories.create') }}"> <button class="btn btn-outline-primary">Aggiungi nuova
                                 categoria</button></a>
@@ -22,10 +22,21 @@
                                         {{ $category->name }} ({{ $category->trips->count() }})
                                     </button>
                                 </h2>
+
                                 <div id="collapse-{{ $category->id }}" class="accordion-collapse collapse"
                                     data-bs-parent="#categoriesAccordion">
                                     <div class="accordion-body">
+                                        <div class="d-flex justify-content-end my-3">
+                                            <div class="btn btn-warning">Modifica Categoria</div>
+                                        </div>
                                         {{ $category->description }}
+                                        <div class="row">
+                                            @foreach ($category->trips as $trip)
+                                                <div class="col-md-4 col-lg-3 mb-4">
+                                                    <x-trip-card :trip="$trip" />
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>

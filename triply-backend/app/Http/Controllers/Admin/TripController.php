@@ -44,7 +44,9 @@ class TripController extends Controller
         $newTrip->category_id = $data['category_id'];
         $newTrip->description = $data['description'];
         $newTrip->save();
-        $newTrip->tags()->attach($data['tags']);
+        if ($request->has('tags')) {
+            $newTrip->tags()->attach($data['tags']);
+        }
         return redirect()->route('trips.show', $newTrip);
     }
 
@@ -83,7 +85,11 @@ class TripController extends Controller
 
         $trip->update();
 
-        $trip->tags()->sync($data['tags']);
+        if ($request->has('tags')) {
+            $trip->tags()->sync($data['tags']);
+        } else {
+            $trip->tags()->detach();
+        }
 
         return redirect()->route('trips.show', $trip);
     }

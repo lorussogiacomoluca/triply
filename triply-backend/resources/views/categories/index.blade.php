@@ -28,7 +28,10 @@
                                     <div class="accordion-body">
                                         <div class="d-flex justify-content-between align-items-center my-3">
                                             <div class="fst-italic">{{ $category->description }}</div>
-                                            <button class="btn btn-warning">Modifica Categoria</button>
+                                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">
+                                                Modifica Categoria
+                                            </a>
+
                                         </div>
 
 

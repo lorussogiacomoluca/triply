@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Trip;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -108,6 +109,10 @@ class TripController extends Controller
      */
     public function destroy(Trip $trip)
     {
+        $trip->tags()->detach();
+        if ($trip->cover_image) {
+            Storage::delete($trip->cover_image);
+        }
         $trip->delete();
         return redirect()->back()->with('success', 'Viaggio eliminato con successo!');
     }

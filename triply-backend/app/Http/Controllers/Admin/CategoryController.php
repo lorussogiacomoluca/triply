@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -34,6 +35,8 @@ class CategoryController extends Controller
         $newCategory = new Category();
         $newCategory->name = $data['name'];
         $newCategory->description = $data['description'];
+
+
         $newCategory->save();
         return redirect()->route('categories.index');
     }

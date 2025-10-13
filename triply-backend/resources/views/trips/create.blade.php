@@ -52,6 +52,10 @@
                         <label for="description" class="form-label">Descrizione</label>
                         <textarea name="description" id="description" class="form-control" rows="4"></textarea>
                     </div>
+                    <div class="mb-3 gap-4">
+                        <label for="image">Carica cover</label>
+                        <input type="file" name="image" id="image">
+                    </div>
                     <div class="d-flex justify-content-end">
                         <a href="{{ route('trips.index') }}" class="btn btn-secondary me-2">Annulla</a>
                         <button type="submit" class="btn btn-primary">Crea Viaggio</button>

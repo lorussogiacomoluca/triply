@@ -37,8 +37,8 @@
 
                 @if ($trip->cover_image)
                     <p><strong>Immagine di copertina:</strong></p>
-                    <img src="{{ $trip->cover_image }}" alt="Cover di {{ $trip->title }}" class="img-fluid rounded mb-3"
-                        style="max-width: 300px;">
+                    <img src="{{ asset('storage/' . $trip->cover_image) }}" alt="Cover di {{ $trip->title }}"
+                        class="img-fluid rounded mb-3" style="max-width: 300px;">
                 @endif
 
             </div>

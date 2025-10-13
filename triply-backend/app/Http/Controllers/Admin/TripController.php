@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Trip;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TripController extends Controller
 {
@@ -43,6 +44,10 @@ class TripController extends Controller
         $newTrip->price = $data['price'];
         $newTrip->category_id = $data['category_id'];
         $newTrip->description = $data['description'];
+        if (array_key_exists("image", $data)) {
+            $img_url = Storage::putFile("trips", $data['image']);
+            $newTrip->cover_image = $img_url;
+        }
         $newTrip->save();
         if ($request->has('tags')) {
             $newTrip->tags()->attach($data['tags']);

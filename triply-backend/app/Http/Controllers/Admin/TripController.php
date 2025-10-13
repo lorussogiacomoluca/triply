@@ -87,7 +87,11 @@ class TripController extends Controller
         $trip->price = $data['price'];
         $trip->category_id = $data['category_id'];
         $trip->description = $data['description'];
-
+        if (array_key_exists('image', $data)) {
+            Storage::delete($trip->cover_image);
+            $img_url = Storage::putFile('trips', $data['image']);
+            $trip->cover_image = $img_url;
+        }
         $trip->update();
 
         if ($request->has('tags')) {

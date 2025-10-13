@@ -59,15 +59,17 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="cover_image" class="form-label">Immagine di copertina</label>
-                        @if ($trip->cover_image)
-                            <div class="mb-2">
-                                <img src="{{ asset('storage/' . $trip->cover_image) }}" alt="Cover"
-                                    class="img-thumbnail" style="max-width: 200px;">
+                        <label for="image" class="form-label">Immagine di copertina</label>
+
+                        <div class="d-flex align-items-start gap-3 mb-2">
+                            <img src="{{ asset('storage/' . $trip->cover_image) }}" alt="Cover" class="img-thumbnail"
+                                style="max-width: 200px;">
+                            <div class="flex-grow-1">
+                                <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                                <small class="text-muted">Lascia vuoto per mantenere l'immagine attuale</small>
                             </div>
-                        @endif
-                        <input type="file" name="cover_image" id="cover_image" class="form-control" accept="image/*">
-                        <small class="text-muted">Lascia vuoto per mantenere l'immagine attuale</small>
+                        </div>
+
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>

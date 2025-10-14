@@ -116,6 +116,6 @@ class TripController extends Controller
             Storage::delete($trip->cover_image);
         }
         $trip->delete();
-        return redirect()->back()->with('success', 'Viaggio eliminato con successo!');
+        return redirect()->route('trips.index');
     }
 }

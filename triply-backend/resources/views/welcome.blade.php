@@ -5,7 +5,7 @@
     <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center text-center py-5">
         <div class="mb-4">
             <h1 class="display-4 fw-bold text-light">Triply</h1>
-            <img src="{{ Vite::asset('resources/imgs/logo.png') }}" style="width: 300px" alt="">
+            <img src="{{ asset('imgs/logo.png') }}" alt="Logo">
             <p class="fs-5 text-secondary mb-2">Benvenuto nel pannello di controllo</p>
         </div>
 

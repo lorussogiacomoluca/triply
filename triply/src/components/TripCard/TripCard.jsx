@@ -35,7 +35,7 @@ const TripCard = ({ trip }) => {
                         <strong>Prezzo:</strong> €
                         {parseFloat(trip.price).toLocaleString('it-IT', { minimumFractionDigits: 2 })}
                     </p>
-                    <Link to={`/trip/${trip.id}`} className="btn btn-primary w-100">
+                    <Link to={`/trip/${trip.id}`} className="btn btn-outline-warning w-100">
                         Vedi Dettagli
                     </Link>
                 </div>

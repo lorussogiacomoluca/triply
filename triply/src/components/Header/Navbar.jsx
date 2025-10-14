@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                    Brand
+                    <img src="../logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top" />
                 </Link>
                 <button
                     className="navbar-toggler"
@@ -71,6 +71,18 @@ const Navbar = () => {
                             </ul>
                         </li>
                     </ul>
+
+                    <div className="d-flex">
+                        <a
+                            href="http://127.0.0.1:8000/"
+                            className="btn btn-outline-light btn-sm"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i className="fa-solid fa-lock"></i>
+                            Admin Panel
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>

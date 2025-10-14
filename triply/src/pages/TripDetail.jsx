@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const TripDetail = () => {
@@ -65,7 +65,9 @@ const TripDetail = () => {
                                 {trip.category && (
                                     <div className="mb-4">
                                         <h5>Categoria</h5>
-                                        <span className="badge bg-primary fs-6">{trip.category.name}</span>
+                                        <Link to={`/categories/${trip.category.id}`}>
+                                            <span className="badge bg-warning fs-6">{trip.category.name}</span>
+                                        </Link>
                                         <p className="text-muted mt-2">{trip.category.description}</p>
                                     </div>
                                 )}
@@ -100,7 +102,7 @@ const TripDetail = () => {
                                         </h3>
                                         <small className="text-muted">per persona</small>
                                     </div>
-                                    <button className="btn btn-primary btn-lg px-5">
+                                    <button className="btn btn-outline-warning btn-lg px-5">
                                         <i className="fas fa-shopping-cart me-2"></i>Prenota Ora
                                     </button>
                                 </div>

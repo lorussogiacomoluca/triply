@@ -10,7 +10,6 @@ const Home = () => {
             <Hero />
 
             <div className="container mt-5">
-                {/* Featured */}
                 <div className="row g-4 justify-content-center">
                     <FeaturedTrips />
                     <CategoryTrips categoryId={3} />

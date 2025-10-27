@@ -10,7 +10,7 @@ const FeaturedTrips = () => {
         axios
             .get('http://127.0.0.1:8000/api/trips/')
             .then((res) => {
-                // Ordina per prezzo decrescente e prendi i primi 3
+                // 3 piu' costosi
                 const sortedTrips = res.data.data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price)).slice(0, 3);
                 setTrips(sortedTrips);
                 setLoading(false);

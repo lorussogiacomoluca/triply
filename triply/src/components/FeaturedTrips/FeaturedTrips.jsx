@@ -31,7 +31,7 @@ const FeaturedTrips = () => {
 
     return (
         <div className="container py-5">
-            <h2 className="text-center mb-5">I 3 viaggi più venduti</h2>
+            <h2 className="text-center mb-5">I 3 viaggi più speciali</h2>
             <div className="row g-4">
                 {trips.map((trip) => (
                     <div key={trip.id} className="col-md-6 col-lg-4">

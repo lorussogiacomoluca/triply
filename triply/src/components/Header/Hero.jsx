@@ -18,7 +18,7 @@ const Hero = () => {
             <div className="text-white text-center">
                 <h1 className="mb-3">Triply!</h1>
                 <h4 className="mb-3">Travel Beyond Limit</h4>
-                <a className="btn btn-outline-light btn-lg" href="#!" role="button">
+                <a className="btn btn-outline-light btn-lg" href="/trips" role="button">
                     Start Discover
                 </a>
             </div>
